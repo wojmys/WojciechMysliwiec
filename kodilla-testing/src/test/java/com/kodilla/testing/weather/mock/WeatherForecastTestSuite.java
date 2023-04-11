@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Math.PI;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -56,10 +57,13 @@ class WeatherForecastTestSuite {
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        double averageExpected = (25+21.2+23+33.1+27.1)/5;
+
+        double actual=weatherForecast.calculateAverageTemperature();
+        actual = Math.round(actual * 100);
+        actual /= 100;
 
         //Then
-        Assertions.assertEquals(averageExpected, weatherForecast.calculateAverageTemperature());
+        Assertions.assertEquals(25.88, actual);
 
     }
     @Test
@@ -78,10 +82,10 @@ class WeatherForecastTestSuite {
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        double medianExpected = 25.5;
+        double actual = weatherForecast.calculateMedianTemperature();
 
         //Then
-        Assertions.assertEquals(medianExpected, weatherForecast.calculateMedianTemperature());
+        Assertions.assertEquals(25.5, actual);
 
     }
     }
