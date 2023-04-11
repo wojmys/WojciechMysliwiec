@@ -1,7 +1,7 @@
 package com.kodilla.testing.shape;
 
-import com.kodilla.Main;
-import com.kodilla.testing.user.SimpleUser;
+
+
 import org.junit.jupiter.api.*;
 
 public class ShapeCollectorTestSuite {
