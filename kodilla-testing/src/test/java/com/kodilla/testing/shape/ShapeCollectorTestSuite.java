@@ -64,22 +64,18 @@ public class ShapeCollectorTestSuite {
             Circle circle = new Circle(7);
             Rectangle rectangle = new Rectangle(3, 6);
 
-
             //when
-            double triangleExpected = 1200;
+
             double triangleActual = triangle.getField();
-
-            double circleExpected = 49 * Math.PI;
             double circleActual = circle.getField();
-
-            double rectangleExpected = 3 * 6;
             double rectangleActual = rectangle.getField();
 
-
             //then
-            Assertions.assertEquals(triangleExpected, triangleActual);
-            Assertions.assertEquals(circleExpected, circleActual);
-            Assertions.assertEquals(rectangleExpected, rectangleActual);
+
+            Assertions.assertEquals(1200, triangleActual);
+
+            Assertions.assertEquals(153.93804002589985, circleActual);
+            Assertions.assertEquals(18, rectangleActual);
 
         }
 

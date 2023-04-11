@@ -10,7 +10,7 @@ public class Main {
             sc.addShape(new Circle(5));
             sc.addShape(new Rectangle(45, 50));
 
-            System.out.println(sc.getAllShapes());
+            System.out.println(49 * Math.PI);
         }catch (Exception e){
             e.printStackTrace();
         }
