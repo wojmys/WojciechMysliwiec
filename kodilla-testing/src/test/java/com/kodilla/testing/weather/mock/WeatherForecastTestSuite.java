@@ -59,11 +59,10 @@ class WeatherForecastTestSuite {
         //When
 
         double actual=weatherForecast.calculateAverageTemperature();
-        actual = Math.round(actual * 100);
-        actual /= 100;
+
 
         //Then
-        Assertions.assertEquals(25.88, actual);
+        Assertions.assertEquals(25.88, actual,0.001);
 
     }
     @Test
