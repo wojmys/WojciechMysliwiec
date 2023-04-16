@@ -1,19 +1,41 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.beautifier.PoemDecorator;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumUser.Forum;
+import com.kodilla.stream.forumUser.ForumUser;
+
+import java.time.LocalDate;
+
+import java.time.temporal.ChronoUnit;
+
+import java.util.Map;
+import java.util.stream.*;
+
 
 public class StreamMain {
 
     public static void main(String[] args) {
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        System.out.println(poemBeautifier.beautify("Life Is Beautiful",(i)->i.toLowerCase()));
-        System.out.println(poemBeautifier.beautify("life is a bitch",(i)->i.toUpperCase()));
-        System.out.println(poemBeautifier.beautify("Life Is Beautiful",(i)->i+" isn't it?"));
-        };
+    try {
+        Forum forum = new Forum();
+
+        Map<Integer, ForumUser> results = forum.getList().stream()
+                .filter(user -> user.getUserSex() == 'M')
+                .filter(user->ChronoUnit.YEARS.between(user.getDateOfBirth(), LocalDate.now())>20)
+                .filter(user -> user.getNumberOFPosts() >= 1)
+                .collect(Collectors.toMap(ForumUser::getUserId, user -> user));
+
+        results.entrySet().stream()
+                .map(entry ->"key: "+ entry.getKey() + ", value: " + entry.getValue())
+                .forEach(System.out::println);
+
+
+    }catch(Exception e){
+
+        e.printStackTrace();
     }
+
+    }
+
+}
 
 
