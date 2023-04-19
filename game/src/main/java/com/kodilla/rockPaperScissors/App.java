@@ -6,8 +6,6 @@ public class App {
         Menu menu = new Menu();
         menu.startGame();
         menu.askForName();
-
     }
-
 
 }

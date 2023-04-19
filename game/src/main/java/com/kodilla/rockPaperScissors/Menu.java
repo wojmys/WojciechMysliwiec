@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-
     private String name;
     private int numberOfRounds;
     private boolean flag = true;
@@ -14,14 +13,12 @@ public class Menu {
     private String gamersMove;
     private String computersMove;
 
-
     public int getNumberOfRounds() {
         return numberOfRounds;
     }
 
     public void startGame() {
         System.out.println("Welcome to Rock Paper Scissors game !" + "\n");
-
     }
 
     public void askForName() {
@@ -34,7 +31,6 @@ public class Menu {
             System.out.println("Hello " + name + "!" + "\n");
             askHowManyRounds();
         }
-
     }
 
     public void askHowManyRounds() {
@@ -42,20 +38,17 @@ public class Menu {
             Scanner scanner = new Scanner(System.in);
             System.out.println("please type a number of rounds");
 
-
             this.numberOfRounds = scanner.nextInt();
             if (numberOfRounds <= 0) {
                 System.out.println("Number of rounds must be an Integer value" + "\n" + "and cannot be 0 or less" + "\n");
                 askHowManyRounds();
             } else {
                 presentRules();
-
             }
         } catch (Exception e) {
             System.out.println("Number of rounds must be an Integer value" + "\n" + "and cannot be 0 or less" + "\n");
             askHowManyRounds();
         }
-
     }
 
     public void presentRules() {
@@ -120,7 +113,6 @@ public class Menu {
         System.out.println("Result:\n"
                 + name + ": " + gamerScore + " points\n"
                 + "Computer" + ": " + computerScore + " points" + "\n"
-
         );
 
     }
@@ -144,9 +136,7 @@ public class Menu {
         } catch (Exception e) {
             endGame();
         }
-
     }
-
     public void nextRound() {
         flag=true;
         int count = 1;
@@ -198,12 +188,8 @@ public class Menu {
                     continue;
             }
             }
-
         }
-
-
     }
-
 }
 
 

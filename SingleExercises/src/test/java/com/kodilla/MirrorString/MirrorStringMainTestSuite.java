@@ -26,8 +26,6 @@ public class MirrorStringMainTestSuite {
         Assertions.assertEquals("awE", actual2);
         Assertions.assertEquals("kayaK", actual3);
 
-
     }
-
 
 }

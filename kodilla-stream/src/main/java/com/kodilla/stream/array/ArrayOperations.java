@@ -25,9 +25,11 @@ public interface ArrayOperations {
         OptionalDouble result= IntStream.range(0,list.size())
                 .map(n->list.get(n))
                 .average();
+        double doubleResult=0;
 
 
-        return  result.getAsDouble();
+        return result.orElse(doubleResult);
+//        return  result.getAsDouble();
 
     }
 

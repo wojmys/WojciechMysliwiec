@@ -4,8 +4,6 @@ public class MirrorStringMain {
     public static void main(String[] args) {
         MirrorStringMain mirror = new MirrorStringMain();
 
-
-
         mirror.makeMirrorString("Adam");
     }
      public String makeMirrorString(String stringWord){
@@ -15,11 +13,8 @@ public class MirrorStringMain {
         for (int i=word.length()-1; i>=0;i--){
            result=result+word.charAt(i);
         }
-
-
         System.out.println(result);
         return result;
     }
-
 
 }
