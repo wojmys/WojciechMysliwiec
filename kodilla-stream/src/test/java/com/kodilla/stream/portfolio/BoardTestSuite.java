@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -116,15 +115,17 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
+
 
        long sumDays =project.getTaskLists().stream()
+
+                .filter(tl -> tl.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(d-> ChronoUnit.DAYS.between(d.getCreated(), LocalDate.now()))
                .collect(Collectors.summingLong(Long::longValue));
 
        long numberOfTasks=project.getTaskLists().stream()
+               .filter(tl -> tl.getName().equals("In progress"))
                .flatMap(tl -> tl.getTasks().stream())
                        .count();
 
@@ -134,10 +135,10 @@ public class BoardTestSuite {
         //then
 
         //days-total
-        assertEquals(85,sumDays);
+        assertEquals(30,sumDays);
 
-        //days-average: 85/6
-        assertEquals(14.166,averageDuration,0.001);
+        //days-average: 30/3
+        assertEquals(10,averageDuration,0.001);
 
     }
 
