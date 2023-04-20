@@ -8,7 +8,8 @@ public class Main {
 
         System.out.println("Searching for flight 1");
         try {
-            routeFinder.findFlight(flight1);
+            boolean routeFound=routeFinder.findFlight(flight1);
+            System.out.println(routeFound);
         }catch(RouteNotFoundException e){
             System.out.println("Please try another route");
         }
@@ -17,7 +18,8 @@ public class Main {
 
         System.out.println("Searching for flight 2");
         try {
-            routeFinder.findFlight(flight2);
+            boolean routeFound=routeFinder.findFlight(flight2);
+            System.out.println(routeFound);
         }catch(RouteNotFoundException e){
             System.out.println("Please try another route");
         }
@@ -26,7 +28,8 @@ public class Main {
 
         System.out.println("Searching for flight 3");
         try {
-            routeFinder.findFlight(flight3);
+            boolean routeFound=routeFinder.findFlight(flight3);
+            System.out.println(routeFound);
         }catch(RouteNotFoundException e){
             System.out.println("Please try another route");
         }

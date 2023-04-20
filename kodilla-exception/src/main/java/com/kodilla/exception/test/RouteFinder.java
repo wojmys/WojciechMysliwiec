@@ -23,7 +23,7 @@ public class RouteFinder {
         return airports;
     }
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> airportMap = getAirports();
 
@@ -31,13 +31,10 @@ public class RouteFinder {
                 || !airportMap.containsKey(flight.getArrivalAirport())) {
             throw new RouteNotFoundException();
         } else if ((!airportMap.get(flight.getDepartureFlight()))||(!airportMap.get(flight.getArrivalAirport()))){
-            System.out.println("Connection not possible!");
+            return false;
         } else {
 
-            String departure = "Departure: " + flight.getDepartureFlight();
-            String arrival = "Arrival: " + flight.getArrivalAirport();
-
-            System.out.println("Connection found: "+departure + "\n" + arrival);
+        return true;
 
         }
     }
