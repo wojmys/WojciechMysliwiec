@@ -4,4 +4,9 @@ include 'kodilla-stream'
 include 'SingleExercises'
 include 'game'
 include 'kodilla-exception'
+include 'kodilla-good-patterns'
+include 'kodilla-spring'
+
+
+
 
