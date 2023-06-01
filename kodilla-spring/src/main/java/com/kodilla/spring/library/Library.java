@@ -4,25 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Component
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library {
 
-    @Autowired
+    private final List<String> books = new ArrayList<>();
     private LibraryDbController libraryDbController;
 
-//    @Autowired
-//    public Library(LibraryDbController libraryDbController) {
-//        this.libraryDbController = libraryDbController;
-//    }
-//    public Library(){
-//
-//    }
 
-    public void saveToDb(){
+    public Library(final LibraryDbController libraryDbController) {
+        this.libraryDbController = libraryDbController;
+    }
+
+    public Library() {
+    }
+
+    public void saveToDb() {
         libraryDbController.saveData();
     }
 
-    public void loadFromDb(){
+    public void loadFromDb() {
         libraryDbController.loadData();
     }
 }
