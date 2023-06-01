@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class CalculatorTestSuite {
 
     @Autowired
-    private Display display;
-    @Autowired
     private Calculator calculator;
 
     @Test
