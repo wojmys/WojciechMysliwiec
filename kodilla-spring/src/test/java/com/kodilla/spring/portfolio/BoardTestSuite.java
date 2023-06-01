@@ -10,6 +10,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @SpringBootTest
 public class BoardTestSuite {
 
+    @Autowired
+    Board board;
 
     @Test
     void testTaskAdd() {
