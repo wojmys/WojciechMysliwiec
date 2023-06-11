@@ -13,7 +13,6 @@ public class LibraryTestSuite {
     @Test
     void testGetBooks(){
         //given
-        int count=0;
 
         Library library = new Library("Library1");
         Book book1 = new Book("title1","author1",LocalDate.of(2001,02,01));
