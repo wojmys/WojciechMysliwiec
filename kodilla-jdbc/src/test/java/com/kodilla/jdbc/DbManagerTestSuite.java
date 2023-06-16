@@ -65,7 +65,7 @@ public class DbManagerTestSuite {
         while (rs.next()) {
             System.out.println(
                     rs.getString("FIRSTNAME") + ", " +
-                    rs.getString("LASTNAME") + ", "+
+                            rs.getString("LASTNAME") + ", " +
                             rs.getInt("POSTS_NUMBER")
             );
             counter++;
@@ -74,6 +74,6 @@ public class DbManagerTestSuite {
         statement.close();
         assertEquals(1, counter);
     }
-    }
+}
 
 
