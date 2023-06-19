@@ -21,24 +21,28 @@ public final class User {
     }
 
     @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         User user = (User) o;
 
-        return Objects.equals(userName, user.userName);
+        if (!Objects.equals(userName, user.userName)) return false;
+        return Objects.equals(realName, user.realName);
     }
 
     @Override
     public int hashCode() {
-        return userName != null ? userName.hashCode() : 0;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                '}';
+        int result = userName != null ? userName.hashCode() : 0;
+        result = 31 * result + (realName != null ? realName.hashCode() : 0);
+        return result;
     }
 }
+
