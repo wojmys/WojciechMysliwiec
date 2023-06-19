@@ -1,9 +1,11 @@
-package com.kodilla.spring.calculator;
+package com.example.springexercises.calculator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-@Component
+@Configuration
 public class Calculator {
 
     @Autowired

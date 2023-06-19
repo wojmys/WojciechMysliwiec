@@ -21,24 +21,25 @@ public class BoardConfig {
     TaskList doneList;
 
     @Bean
-    public Board board() {
+    Board board() {
+
         return new Board(toDoList, inProgressList, doneList);
     }
 
     @Bean(name = "toDoList")
-    public TaskList getToDoLIst() {
+    TaskList getToDoLIst() {
 
         return new TaskList();
     }
 
     @Bean(name = "inProgressList")
-    public TaskList getInProgressLIst() {
+    TaskList getInProgressList() {
 
         return new TaskList();
     }
 
     @Bean(name = "doneList")
-    public TaskList getDoneLIst() {
+    TaskList getDoneList() {
         return new TaskList();
     }
 

@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class CalculatorTestSuite {
 
     @Autowired
-    private Calculator calculator;
+    Calculator calculator;
 
     @Test
     void testCalculations() {
