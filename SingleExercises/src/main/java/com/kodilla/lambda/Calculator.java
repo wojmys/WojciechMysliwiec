@@ -1,0 +1,5 @@
+package com.kodilla.lambda;
+
+public interface Calculator {
+    double calculate(int a,int b);
+}

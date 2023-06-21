@@ -40,6 +40,7 @@ public class BoardConfig {
 
     @Bean(name = "doneList")
     TaskList getDoneList() {
+
         return new TaskList();
     }
 
