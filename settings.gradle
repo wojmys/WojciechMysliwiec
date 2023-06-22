@@ -13,4 +13,5 @@ include 'kodilla-jdbc'
 include 'kodilla-sudoku'
 include 'spring-exercises'
 include 'kodilla-hibernate'
+include 'TicTacToe'
 
