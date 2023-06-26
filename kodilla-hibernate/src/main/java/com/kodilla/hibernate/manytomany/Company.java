@@ -6,6 +6,17 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+//SELECT pub_name, SUBSTR(pub_name,4,5)
+//        -> FROM publisher
+//        -> WHERE country='USA';
+
+@NamedNativeQuery(
+        name="Company.retrieveCompanyByFirst3Characters",
+        query = "SELECT * FROM COMPANIES"+
+                " WHERE SUBSTR(COMPANY_NAME,1,3)= :NAME",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name="COMPANIES")
 public class Company {
