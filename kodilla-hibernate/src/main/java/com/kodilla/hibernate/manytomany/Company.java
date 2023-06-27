@@ -6,9 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-//SELECT pub_name, SUBSTR(pub_name,4,5)
-//        -> FROM publisher
-//        -> WHERE country='USA';
 
 @NamedNativeQuery(
         name="Company.retrieveCompanyByFirst3Characters",
