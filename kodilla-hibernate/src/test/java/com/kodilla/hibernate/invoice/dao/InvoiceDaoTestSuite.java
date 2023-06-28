@@ -30,10 +30,8 @@ public class InvoiceDaoTestSuite {
         productDao.save(fridge);
 
         //zmien na konstruktory
-        Item itemChair = new Item(new BigDecimal(50), 2, new BigDecimal(100));
-        itemChair.setProduct(chair);
-        Item itemFridge = new Item(new BigDecimal(2550), 1, new BigDecimal(2550));
-        itemFridge.setProduct(fridge);
+        Item itemChair = new Item(chair,new BigDecimal(50), 2, new BigDecimal(100));
+        Item itemFridge = new Item(fridge,new BigDecimal(2550), 1, new BigDecimal(2550));
         Invoice invoice = new Invoice("123");
         invoice.getItems().add(itemChair);
         invoice.getItems().add(itemFridge);

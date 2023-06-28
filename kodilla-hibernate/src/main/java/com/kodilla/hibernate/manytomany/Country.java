@@ -4,29 +4,27 @@ package com.kodilla.hibernate.manytomany;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
-@NamedQueries({
 
-        @NamedQuery(
-                name = "Country.retrieveCountryByName",
-                query = "FROM Country WHERE name= :NAME"
-        ),
-        @NamedQuery(
-                name= "Country.retrieveCountryByPopulationNumber",
-                query= "FROM Country WHERE population= :POPULATION"
-        ),
-        @NamedQuery(
-                name= "Country.retrieveCountryByCapital",
-                query= "FROM Country WHERE capital= :CAPITAL"
-        )
-})
 @Entity
 @Table(name = "COUNTRIES")
 public class Country {
 
-
+    @NotNull
+    @Id
+    @GeneratedValue
+    @Column(name = "ID", unique = true)
     private int id;
+
+    @NotNull
+    @Column(name = "COUNTRY_NAME")
     private String name;
+
+    @NotNull
+    @Column(name = "POPULATION")
     private int population;
+
+    @NotNull
+    @Column(name = "CAPITAL")
     private String capital;
 
     public Country() {
@@ -38,28 +36,19 @@ public class Country {
         this.capital = capital;
     }
 
-    @NotNull
-    @Id
-    @GeneratedValue
-    @Column(name = "ID", unique = true)
+
     public int getId() {
         return id;
     }
 
-    @NotNull
-    @Column(name = "COUNTRY_NAME")
     public String getName() {
         return name;
     }
 
-    @NotNull
-    @Column(name = "POPULATION")
     public int getPopulation() {
         return population;
     }
 
-    @NotNull
-    @Column(name = "CAPITAL")
     public String getCapital() {
         return capital;
     }
@@ -78,5 +67,10 @@ public class Country {
 
     private void setCapital(String capital) {
         this.capital = capital;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

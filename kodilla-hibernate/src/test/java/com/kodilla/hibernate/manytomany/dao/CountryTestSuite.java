@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.domain.JpaSort;
 
 import java.util.List;
 
@@ -54,6 +55,35 @@ public class CountryTestSuite {
         countryDao.deleteById(franceID);
 
 
+    }
+
+    @Test
+    void testCountryDao(){
+        //given
+        Country poland = new Country("Poland", 40000000, "Warsaw");
+        Country germany = new Country("Germany", 85000000, "Berlin");
+        Country russia = new Country("Russia", 150000000, "Moscow");
+        Country france = new Country("France", 60000000, "Paris");
+        //when
+        countryDao.save(poland);
+        int polandID = poland.getId();
+        countryDao.save(germany);
+        int germanyID = germany.getId();
+        countryDao.save(russia);
+        int russiaID = russia.getId();
+        countryDao.save(france);
+        int franceID = france.getId();
+
+        List<Country>allCountries=countryDao.findAllCountries(JpaSort.unsafe("LENGTH(name)"));
+        System.out.println(allCountries);
+        //then
+        Assertions.assertEquals(4,allCountries.size());
+
+        //cleanUP
+        countryDao.deleteById(polandID);
+        countryDao.deleteById(germanyID);
+        countryDao.deleteById(russiaID);
+        countryDao.deleteById(franceID);
     }
 
 

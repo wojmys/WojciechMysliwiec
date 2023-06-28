@@ -20,7 +20,8 @@ public class Item {
     public Item() {
     }
 
-    public Item(BigDecimal price, int quantity, BigDecimal value) {
+    public Item(Product produkt,BigDecimal price, int quantity, BigDecimal value) {
+        this.product=product;
         this.price = price;
         this.quantity = quantity;
         this.value = value;

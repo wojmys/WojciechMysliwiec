@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Country;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,12 +14,15 @@ import java.util.List;
 @Transactional
 public interface CountryDao extends CrudRepository<Country, Integer> {
 
-    @Query
+    @Query(value = "SELECT u FROM Country u")
+    List<Country> findAllCountries(Sort sort);
+
+    @Query( value="FROM Country WHERE name= :NAME")
     List<Country> retrieveCountryByName(@Param("NAME")String name);
 
-    @Query
+    @Query(value="FROM Country WHERE population= :POPULATION")
     List<Country>retrieveCountryByPopulationNumber(@Param("POPULATION")int population);
 
-    @Query
+    @Query(value = "FROM Country WHERE capital= :CAPITAL")
     List<Country>retrieveCountryByCapital(@Param("CAPITAL")String capital);
 }
