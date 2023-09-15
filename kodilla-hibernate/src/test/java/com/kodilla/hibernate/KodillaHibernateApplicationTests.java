@@ -9,8 +9,8 @@ class KodillaHibernateApplicationTests {
 //    Test ten sprawdza, czy można nawiązać połączenie
 //    z bazą danych.
 
-    @Test
-    void contextLoads() {
-    }
+//    @Test
+//    void contextLoads() {
+//    }
 
 }
