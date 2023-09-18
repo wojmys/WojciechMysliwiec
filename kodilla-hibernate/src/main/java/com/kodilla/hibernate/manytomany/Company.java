@@ -13,7 +13,10 @@ import java.util.List;
                 " WHERE SUBSTR(COMPANY_NAME,1,3)= :NAME",
         resultClass = Company.class
 )
-
+@NamedQuery(
+        name = "Company.findCompaniesContainingFragment",
+        query = "FROM Company WHERE UPPER(name) LIKE CONCAT('%', UPPER(:ARG), '%')"
+)
 @Entity
 @Table(name="COMPANIES")
 public class Company {
