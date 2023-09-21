@@ -11,8 +11,8 @@ class MentorTasksTestSuite {
     @Test
     void shouldReturnExpectedNumberOfNotifications() {
         //given
-        StudentTasks course1 = new Course1();
-        StudentTasks course2 = new Course2();
+        StudentTasks course1 = new JavaCourse();
+        StudentTasks course2 = new JavaScriptCourse();
         Mentor mentor1 = new Mentor("Jan Nowak");
         course1.registerObserver(mentor1);
         Mentor mentor2 = new Mentor("Stefan Kodilla");
