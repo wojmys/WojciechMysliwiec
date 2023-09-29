@@ -1,7 +1,6 @@
 package com.kodilla.jdbc;
 
 
-
 import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
@@ -37,7 +36,31 @@ public class StoredProcTestSuite {
         statement.close();
         statement2.close();
     }
-    @Test
-    void testUpdateBestsellers(){};
 
-}
+    @Test
+    void testUpdateBestsellers() throws SQLException {
+        //given
+        DbManager dbManager = DbManager.getInstance();
+        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER=FALSE";
+        Statement statement = dbManager.getConnection().createStatement();
+        statement.executeUpdate(sqlUpdate);
+        String sqlCheckTable = "SELECT COUNT(*) AS HOW_MANY_BESTSELLERS FROM BOOKS WHERE BESTSELLER = TRUE";
+        //when
+        Statement secondStatement = dbManager.getConnection().createStatement();
+        String sqlProcedureCall = "CALL UpdateBestsellers()";
+        secondStatement.executeUpdate(sqlProcedureCall);
+        ResultSet rs = statement.executeQuery(sqlCheckTable);
+        // Then
+        int howMany = -1;
+        if (rs.next()) {
+            howMany = rs.getInt("HOW_MANY_BESTSELLERS");
+        }
+        assertEquals(1, howMany);
+        rs.close();
+        statement.close();
+        secondStatement.close();
+    }
+    }
+
+    ;
+
